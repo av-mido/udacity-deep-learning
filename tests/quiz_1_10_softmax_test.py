@@ -1,5 +1,6 @@
-from quiz_1_10_softmax import softmax
 import numpy as np
+
+from src.quiz_1_10_softmax import softmax
 
 
 def test_list():
