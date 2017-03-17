@@ -18,25 +18,18 @@ def softmax(x):
         return np.array([math.exp(j)/denom for j in x], copy=True)
     else:
         result = x.copy()
-        print('num cols: ', x.shape[1])
+        # print('num cols: ', x.shape[1])
         for colidx in range(0,x.shape[1]):
             result[:,colidx] = softmax(x[:,colidx])
-        print('result: ', result)
         return result
 
-
-print(softmax(scores))
-print(sum(softmax(scores)))
-
-np_s = np.array(scores)
-print(softmax(np_s))
-print(sum(softmax(np_s)))
-
-# Plot softmax curves
-import matplotlib.pyplot as plt
-x = np.arange(-2.0, 6.0, 0.1)
-scores = np.vstack([x, np.ones_like(x), 0.2 * np.ones_like(x)])
-print('scores: ', scores)
-plt.plot(x, softmax(scores).T, linewidth=2)
-plt.show()
-
+if __name__ == "__main__":
+    # Plot softmax curves
+    import matplotlib.pyplot as plt
+    x = np.arange(-2.0, 6.0, 0.1)
+    scores = np.vstack([x, np.ones_like(x), 0.2 * np.ones_like(x)])
+    print('scores: ', scores)
+    softmax_scores = softmax(scores)
+    plt.plot(x, softmax_scores.T, linewidth=2)
+    print('softmax scores: ', softmax_scores)
+    plt.show()
