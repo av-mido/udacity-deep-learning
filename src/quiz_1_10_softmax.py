@@ -9,6 +9,9 @@ import sys
 print(sys.version_info)
 
 def softmax(x):
+    return np.exp(x) / np.sum(np.exp(x), axis=0)
+
+def softmax_long_version(x):
     """Compute softmax values for each sets of scores in x."""
     if isinstance(x, list):
         denom = sum([math.exp(j) for j in x])

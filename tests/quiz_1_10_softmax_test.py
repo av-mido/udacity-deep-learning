@@ -5,7 +5,7 @@ from src.quiz_1_10_softmax import softmax
 
 def test_list():
     scores = [3.0, 1.0, 0.2]
-    assert softmax(scores) == [0.8360188027814407, 0.11314284146556011, 0.05083835575299916]
+    assert np.allclose(softmax(scores), [0.8360188027814407, 0.11314284146556011, 0.05083835575299916])
     assert abs(sum(softmax(scores)) - 1.0) < 0.00001
 
 def test_1_dim_nparray():
